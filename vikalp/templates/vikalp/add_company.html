@@ -1,0 +1,11 @@
+{% extends 'vikalp/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block head %}Add Company{% endblock %}
+{% block content %}
+        <div class="col-xs-3"></div>
+        <div class="container col-xs-6">
+            <h1>Add Company To Vikalp</h1>
+            {% crispy form %}
+        </div>
+{% endblock %}

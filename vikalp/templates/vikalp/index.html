@@ -1,0 +1,30 @@
+{% extends 'vikalp/base.html' %}
+{% load staticfiles %}
+{% block head %}Home{% endblock %}
+{% block content %}
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>Your one stop solution for jobs</h1>
+                        <p>We provide jobs from different online platforms to this unique platform. It's lot more easier and time saving.
+                        </p>
+                        {% if user.is_authenticated %}
+                        {% else %}
+                        <a href="{% url 'vikalp:register' %}" class="btn btn-success">REGISTER</a>
+                        <a href="{% url 'vikalp:sign' %}" class="btn btn-default">SIGN IN</a>
+                        {% endif %}
+                    </div>
+                    <img src="{% static 'images/home/slider/hill.png' %}" class="slider-hill" alt="slider image">
+                    <img src="{% static 'images/home/slider/house.png' %}" class="slider-house" alt="slider image">
+                    <img src="{% static 'images/home/slider/sun.png' %}" class="slider-sun" alt="slider image">
+                    <img src="{% static 'images/home/slider/birds1.png' %}" class="slider-birds1" alt="slider image">
+                    <img src="{% static 'images/home/slider/birds2.png' %}" class="slider-birds2" alt="slider image">
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+{% endblock %}
