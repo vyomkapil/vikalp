@@ -18,6 +18,7 @@ class Company(models.Model):
     about = models.TextField()
     proc = models.TextField('recruitment procedure')
 
+
     class Meta:
         verbose_name_plural = "companies"
 

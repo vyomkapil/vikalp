@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'vikalp',
     'crispy_forms',
+    'social.apps.django_app.default'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,6 +68,14 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.open_id.OpenIdAuth',
+    'social.backends.google.GoogleOpenId',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOAuth',
+    'django.contrib.auth.backends.ModelBackend'
+)
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
@@ -105,3 +114,12 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 LOGIN_URL = '/vikalp/register/'
+
+LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username','first_name','email']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '325541364364-lpg34g06fapuljftqqpckdntbre5p275.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'N9TNDPgPtTOqrG5JTxTjmKej'
