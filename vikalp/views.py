@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import FormView
-from .models import Branch
+from .models import Branch, Company
 from .forms import RegistrationForm, CompanyForm
 
 
@@ -52,7 +52,8 @@ def signout(request):
 
 def add_company(request):
     if request.method == 'POST':
-        form = CompanyForm(request.POST)
+        a = Company(user=request.user)
+        form = CompanyForm(request.POST, instance=a)
         if form.is_valid():
             form.save(commit=True)
             return index(request)
@@ -68,5 +69,6 @@ def list(request, branch_id):
     return render(request, 'vikalp/listOfCompany.html', {'branch':branch, 'branches':Branch.objects.all()})
 
 @login_required
-def detail(request):
-    return render(request, 'vikalp/individualcomp.html', {'branches':Branch.objects.all()})
+def detail(request, company_id):
+    company = get_object_or_404(Company, pk=company_id)
+    return render(request, 'vikalp/individualcomp.html', {'company':company, 'branches':Branch.objects.all()})

@@ -24,12 +24,12 @@ class RegistrationForm(UserCreationForm):
 
 
 class CompanyForm(forms.ModelForm):
-    type = forms.ModelChoiceField(
+    branch = forms.ModelChoiceField(
         queryset=Branch.objects.all().order_by('name'))
 
     class Meta:
         model = Company
-        fields = ('name', 'about', 'proc')
+        fields = ('name', 'title', 'about', 'proc', 'location', 'ctc', 'experience', 'branch')
 
     def __init__(self, *args, **kwargs):
         super(CompanyForm, self).__init__(*args, **kwargs)
