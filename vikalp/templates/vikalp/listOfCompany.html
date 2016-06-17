@@ -11,29 +11,36 @@
 </script>
 	<div class="container">
 		<div id="filter" class="wow slideInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
-			<div id="byctc">
-				<p class="heading">CTC</p><input type="range" min="0" max="1000000" onchange="changeval(this.value)">
-				<input type="text" id="storeval">
-			</div>
-			<div id="bylocation">
-				<p class="heading">Choose your location</p>
-				<input type="checkbox" value="bangalore">Bangalore</br></br>
-				<input type="checkbox" value="noida">Noida</br></br>
-				<input type="checkbox" value="gurgaon">Gurgaon</br></br>
-				<input type="checkbox" value="delhi">Delhi</br></br>
-				<input type="checkbox" value="mumbai">Mumbai</br></br>
-				<input type="checkbox" value="hyderabad">Hyderabad</br></br>
-				<input type="checkbox" value="mysore">Mysore</br></br>
-				<input type="checkbox" value="pune">Pune</br></br>
-			</div>
-			<div id="byexperience">
-				<p class="heading">Experience</p>
-				<input type="number" min="0" >
-			</div>
+			<form method="POST" action="{% url 'vikalp:list' branch.id %}">
+				{% csrf_token %}
+				<div id="byctc">
+					<p class="heading">CTC</p><input type="range" min="0" max="1000000" onchange="changeval(this.value)">
+					<input type="text" id="storeval" name="ctc">
+				</div>
+				<br />
+				<div id="bylocation">
+					<p class="heading">Choose your location</p>
+					<input type="checkbox" name="location" value="bangalore">Bangalore</br></br>
+					<input type="checkbox" name="location" value="noida">Noida</br></br>
+					<input type="checkbox" name="location" value="gurgaon">Gurgaon</br></br>
+					<input type="checkbox" name="location" value="delhi">Delhi</br></br>
+					<input type="checkbox" name="location" value="mumbai">Mumbai</br></br>
+					<input type="checkbox" name="location" value="hyderabad">Hyderabad</br></br>
+					<input type="checkbox" name="location" value="mysore">Mysore</br></br>
+					<input type="checkbox" name="location" value="pune">Pune</br></br>
+				</div>
+				<br />
+				<div id="byexperience">
+					<p class="heading">Experience</p>
+					<input type="number" min="0" name="experience">
+				</div>
+				<br>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
 			 
 		<div id="listOfJobs" class="wow slideInRight" data-wow-duration="1000ms" data-wow-delay="300ms" >
-			{% for company in branch.company_set.all() %}
+			{% for company in companies %}
 				<div class="job">
 					<a href="{% url 'vikalp:detail' company.id %}">
 						<div id="position"><p>{{company.title}}</p></div>

@@ -66,7 +66,14 @@ def add_company(request):
 @login_required
 def list(request, branch_id):
     branch = get_object_or_404(Branch, pk=branch_id)
-    return render(request, 'vikalp/listOfCompany.html', {'branch':branch, 'branches':Branch.objects.all()})
+    if request.method == 'POST':
+        c = request.POST.get('ctc')
+        ls = request.POST.getlist('location')
+        e = request.POST.get('experience')
+        companies = branch.company_set.filter(ctc__gte=c).filter(experience__gte=e).filter(location__in=ls)
+    else:
+        companies = branch.company_set.all
+    return render(request, 'vikalp/listOfCompany.html', {'branch':branch, 'companies':companies, 'branches':Branch.objects.all()})
 
 @login_required
 def detail(request, company_id):

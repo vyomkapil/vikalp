@@ -269,9 +269,9 @@ ul.sub-menu {
 
 #filter
 {
-	background-color:#00AB6B;
-  color:#ffffff;
-  font-weight:200;
+  background-color:#00AB6B;
+  color:#000000;
+  font-weight:500;
   width:20%;
 	min-width:200px;
 	float:left;
@@ -318,7 +318,7 @@ ul.sub-menu {
 {
 	//font-size:1.2em;
 }
-#ctc 
+#ctc
 {
 	margin-top:30px;
 	width:200px;
