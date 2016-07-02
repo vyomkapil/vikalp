@@ -38,4 +38,13 @@ class UserProfile(models.Model):
         return self.user.username
 
 
+class Message(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    contact = models.CharField(max_length=50)
+    message = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
 

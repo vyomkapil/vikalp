@@ -286,10 +286,10 @@ ul.sub-menu {
 	//height:700px;
 	margin-left:20%;
 	width:80%;
-  background-color:#010631;
+  background-color:#b38040;
   color:#ffffff;
   z-index:1;
-  font-weight:200;
+  font-weight:600;
 }
 #bylocation
 {
@@ -354,14 +354,8 @@ ul.sub-menu {
 {
   background-color:#003049;
 }
-#contactUs
-{
-  background-color:#D62828;
-}
-#message
-{
-  background-color:#F77F00;
-}
+
+
 #whatWeDo, #contactUs, #message
 {
   height:380px;

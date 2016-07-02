@@ -3,12 +3,12 @@
 {% block head %}{{branch.name}}{% endblock %}
 {% block content %}
 
-<script type="text/javascript">
-	function changeval(val)
-	{
-		document.getElementById("storeval").value  = val;
-	}
-</script>
+	<script type="text/javascript">
+		function changeval(val)
+		{
+			document.getElementById("storeval").value  = val;
+		}
+	</script>
 	<div class="container">
 		<div id="filter" class="wow slideInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
 			<form method="POST" action="{% url 'vikalp:list' branch.id %}">
@@ -41,7 +41,7 @@
 			 
 		<div id="listOfJobs" class="wow slideInRight" data-wow-duration="1000ms" data-wow-delay="300ms" >
 			{% for company in companies %}
-				<div class="job">
+				<div class="job1">
 					<a href="{% url 'vikalp:detail' company.id %}">
 						<div id="position"><p>{{company.title}}</p></div>
 						<div id="compName"><p>{{company.name}}</p></div>
@@ -52,32 +52,23 @@
 			{% endfor %}
 		</div>
 	</div>
-<!--
-<footer id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-sm-6 wow slideInRight" id="whatWeDo" data-wow-duration="1000ms" data-wow-delay="300ms">
-				<h3>What we do?</h3>
-				<p>We provide you one stop solution for your search for jobs. Your frantic search ends here as we thousands of jobs scraped from all around the web at one place. One place to give job to all.</p>
-			</div>
-			<div class="col-md-3 col-sm-6 wow slideInUp" id="contactUs" data-wow-duration="1000ms" data-wow-delay="300ms">
-				<h3>Contacts</h3>
-				<p><span style="font-weight:300">Email:</span>abc@xyz.com</p>
-				<p><span style="font-weight:300">Phone:</span>12345678</p></br>
-				<h3>Address</h3>
-			</div>
-			<div class="col-md-4 col-sm-12 wow slideInLeft" id="message" data-wow-duration="1000ms" data-wow-delay="300ms">
-				<h3>Send a message</h3>
-				<form>
-					<input type="text" placeholder="Name"></br>
-					<input type="text" placeholder="Email Id"></br>
-					<textarea placeholder="Your message here" rows="4"></textarea></br>
-					<input type="submit" id="submit">
-				</form>
-			</div>
-			<div class="col-sm-12"></div>
-		</div>
-	</div>
-</footer>
--->
+
+	<footer id="footer">
+         <div class="container">
+             <div class="row">
+				 <div class="col-md-1"></div>
+                 <div class="col-md-5 col-sm-6 wow animated slideInRight" id="whatWeDo" data-wow-duration="1000ms" data-wow-delay="300ms">
+                     <h2 style="color: #FFFFFF">What we do?</h2>
+                     <p>We provide you one stop solution for your search for jobs. Your frantic search ends here as we provide thousands of jobs scraped from all around the web at one place. One place to give job to all.</p>
+                 </div>
+                 <div class="col-md-5 col-sm-6 wow animated slideInUp" id="contactUs" data-wow-duration="1000ms" data-wow-delay="300ms">
+                     <h2 style="color: #FFFFFF">Contacts</h2>
+                     <h3>Email:</h3><p><span style="font-weight:300">abc@xyz.com</span></p><br />
+                     <h3>Phone:</h3><p><span style="font-weight:300">12345678</span></p><br />
+                     <h3>Address:</h3><p><span style="font-weight:300">Boys Hostel, AKGEC, Ghaziabad.</span></p>
+                 </div>
+             </div>
+         </div>
+     </footer>
+
 {% endblock %}

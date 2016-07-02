@@ -221,11 +221,12 @@ ul.sub-menu {
 /*************************
 **********main content****
 *************************/
-.job
+.job1
 {
-	//background-color:#d3d3d3;
+	background-color:#f5e79e;
 	padding:10px 10px 10px 10px;
-	border:2px solid #11aaff;
+	border:2px solid #b38040;
+    font-weight: 500;
 }
 #compLogo
 {

@@ -15,6 +15,7 @@
     <link href="{% static 'css/lightbox.css' %}" rel="stylesheet">
 	<link href="{% static 'css/main.css' %}" rel="stylesheet">
 	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
 
 
     <!--[if lt IE 9]>
@@ -69,16 +70,15 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                       <li><a href="">About Us</a></li>
-                       <li><a href="">Contact Us</a></li>
-                       {% if user.is_authenticated %}
-                        <li class="dropdown"><a href="#">{{user.username}} <i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="{% url 'vikalp:add_company' %}">Add Job</a></li>
-                                <li><a href="{% url 'vikalp:signout' %}">Sign Out</a></li>
-                            </ul>
-                        </li>
-                       {% endif %}
+                        <li><a href="{% url 'vikalp:contact' %}">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="dropdown"><a href="#">{{user.username}} <i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="{% url 'vikalp:add_company' %}">Add Job</a></li>
+                                    <li><a href="{% url 'vikalp:signout' %}">Sign Out</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
 
@@ -93,5 +93,6 @@
     <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/company.js' %}"></script>
+    <script src="{% static 'js/clean-blog.min.js' %}"></script>
 </body>
 </html>

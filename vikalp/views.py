@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import FormView
-from .models import Branch, Company
+from .models import Branch, Company, Message
 from .forms import RegistrationForm, CompanyForm
 
 
@@ -79,3 +79,11 @@ def list(request, branch_id):
 def detail(request, company_id):
     company = get_object_or_404(Company, pk=company_id)
     return render(request, 'vikalp/individualcomp.html', {'company':company, 'branches':Branch.objects.all()})
+
+def contact(request):
+    if request.method == 'POST':
+        m = Message(name=request.POST['name'], email=request.POST['email'], contact=request.POST['contact'], message=request.POST['message'])
+        m.save()
+        return HttpResponseRedirect(reverse('vikalp:index'))
+    else:
+        return render(request, 'vikalp/contact.html', {'branches':Branch.objects.all()})
