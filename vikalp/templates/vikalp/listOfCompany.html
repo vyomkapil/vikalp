@@ -40,16 +40,23 @@
 		</div>
 			 
 		<div id="listOfJobs" class="wow slideInRight" data-wow-duration="1000ms" data-wow-delay="300ms" >
-			{% for company in companies %}
-				<div class="job1">
-					<a href="{% url 'vikalp:detail' company.id %}">
-						<div id="position"><p>{{company.title}}</p></div>
-						<div id="compName"><p>{{company.name}}</p></div>
-						<div id="ctc"><p>CTC &#8377; {{company.ctc}} lacs</p></div>
-						<div id="location">Location: {{company.location}}</div>
-						<div id="experience">Experience: {{company.experience}} years</div></a>
+			{% if companies %}
+				{% for company in companies %}
+					<div class="job1">
+						<a href="{% url 'vikalp:detail' company.id %}">
+							<div id="position"><p>{{company.title}}</p></div>
+							<div id="compName"><p>{{company.name}}</p></div>
+							<div id="ctc"><p>CTC &#8377; {{company.ctc}} lacs</p></div>
+							<div id="location">Location: {{company.location}}</div>
+							<div id="experience">Experience: {{company.experience}} years</div>
+						</a>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div align="center">
+					<h4 style="color: #000; background-color: #ffffff;">Oops! No Jobs Found. Please refine your search.</h4>
 				</div>
-			{% endfor %}
+			{% endif %}
 		</div>
 	</div>
 

@@ -70,7 +70,10 @@ def list(request, branch_id):
         c = request.POST.get('ctc')
         ls = request.POST.getlist('location')
         e = request.POST.get('experience')
-        companies = branch.company_set.filter(ctc__gte=c).filter(experience__gte=e).filter(location__in=ls)
+        if ls:
+            companies = branch.company_set.filter(ctc__gte=c).filter(experience__gte=e).filter(location__in=ls)
+        else:
+            companies = branch.company_set.filter(ctc__gte=c).filter(experience__gte=e)
     else:
         companies = branch.company_set.all
     return render(request, 'vikalp/listOfCompany.html', {'branch':branch, 'companies':companies, 'branches':Branch.objects.all()})
