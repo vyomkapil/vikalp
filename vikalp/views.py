@@ -26,8 +26,9 @@ def sign(request):
             else:
                 return HttpResponse("Your account is disabled.")
         else:
+            error_message = "Invalid Login Details Supplied"
             print "Invalid login details:{0}, {1}".format(username, password)
-            return HttpResponse("Invalid login details supplied.")
+            return render(request, 'vikalp/sign.html', {'branches':Branch.objects.all(), 'error_message':error_message})
     else:
         return render(request, 'vikalp/sign.html', {'branches':Branch.objects.all()})
 

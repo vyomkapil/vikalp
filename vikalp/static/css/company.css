@@ -272,23 +272,19 @@ ul.sub-menu {
   background-color:#00AB6B;
   color:#000000;
   font-weight:500;
-  width:20%;
 	min-width:200px;
-	float:left;
+
 	overflow:scroll;
 	//height:700px;
-	z-index:10;
+
 	padding:10px;
 }
 #listOfJobs
 {
 	 
 	//height:700px;
-	margin-left:20%;
-	width:80%;
   background-color:#b38040;
   color:#ffffff;
-  z-index:1;
   font-weight:600;
 }
 #bylocation
